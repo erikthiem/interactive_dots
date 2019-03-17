@@ -32,13 +32,13 @@ class App {
     })
 
     chan.on("new:msg", msg => {
-      $messages.append(this.messageTemplate(msg))
+      $messages.append(`<div class='dot' id='dot-${msg.user}'>${msg.body}</div>`)
       scrollTo(0, document.body.scrollHeight)
     })
 
     chan.on("user:entered", msg => {
       var username = this.sanitize(msg.user || "anonymous")
-      $messages.append(`<br/><i>[${username} entered]</i>`)
+      $messages.append(`<div class='dot' id='dot-${username}'></div>`)
     })
   }
 

@@ -2875,13 +2875,13 @@ var App = function () {
       });
 
       chan.on("new:msg", function (msg) {
-        $messages.append(_this.messageTemplate(msg));
+        $messages.append("<div class='dot' id='dot-" + msg.user + "'>" + msg.body + "</div>");
         scrollTo(0, document.body.scrollHeight);
       });
 
       chan.on("user:entered", function (msg) {
         var username = _this.sanitize(msg.user || "anonymous");
-        $messages.append("<br/><i>[" + username + " entered]</i>");
+        $messages.append("<div class='dot' id='dot-" + username + "'></div>");
       });
     }
   }, {
