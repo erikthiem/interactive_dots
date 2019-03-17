@@ -32,7 +32,7 @@ class App {
     })
 
     chan.on("new:msg", msg => {
-      $messages.append(`<div class='dot' id='dot-${msg.user}'>${msg.body}</div>`)
+      $messages.append(`<div class='dot' id='dot-${msg.user}' style='background-color: ${msg.body}'></div>`)
       scrollTo(0, document.body.scrollHeight)
     })
 
