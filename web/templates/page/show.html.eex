@@ -1,2 +1,5 @@
 <input id="username" value="<%= dotid()%>" type="hidden">
+<div class="circle-choice" id="circle-choice-red"></div>
+<div class="circle-choice" id="circle-choice-green"></div>
+<div class="circle-choice" id="circle-choice-blue"></div>
 <div id="circle-input"></div>

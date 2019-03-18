@@ -2839,8 +2839,12 @@ var App = function () {
       socket.connect({ user_id: "123" });
       var $status = $("#status");
       var $messages = $("#messages");
+      var $circleChoiceRed = $("#circle-choice-red");
+      var $circleChoiceGreen = $("#circle-choice-green");
+      var $circleChoiceBlue = $("#circle-choice-blue");
       var $input = $("#circle-input");
       var $username = $("#username");
+      var circleColor = "red";
 
       socket.onOpen(function (ev) {
         return console.log("OPEN", ev);
@@ -2868,8 +2872,23 @@ var App = function () {
       });
 
       $input.on("click", function (e) {
-        chan.push("new:msg", { user: $username.val(), body: "green" });
+        chan.push("new:msg", { user: $username.val(), body: circleColor });
         $input.val("");
+      });
+
+      $circleChoiceRed.on("click", function (e) {
+        circleColor = "red";
+        $input.css("background-color", circleColor);
+      });
+
+      $circleChoiceGreen.on("click", function (e) {
+        circleColor = "green";
+        $input.css("background-color", circleColor);
+      });
+
+      $circleChoiceBlue.on("click", function (e) {
+        circleColor = "blue";
+        $input.css("background-color", circleColor);
       });
 
       chan.on("new:msg", function (msg) {

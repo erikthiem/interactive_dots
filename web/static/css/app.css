@@ -56,3 +56,20 @@ code {
   width: 200px;
   border-radius: 50%;
 }
+
+.circle-choice {
+  height: 50px;
+  width: 200px;
+}
+
+#circle-choice-red {
+  background-color: red;
+}
+
+#circle-choice-green {
+  background-color: green;
+}
+
+#circle-choice-blue {
+  background-color: blue;
+}
