@@ -2839,7 +2839,7 @@ var App = function () {
       socket.connect({ user_id: "123" });
       var $status = $("#status");
       var $messages = $("#messages");
-      var $input = $("#message-input");
+      var $input = $("#circle-input");
       var $username = $("#username");
 
       socket.onOpen(function (ev) {
@@ -2867,11 +2867,9 @@ var App = function () {
         return console.log("channel closed", e);
       });
 
-      $input.off("keypress").on("keypress", function (e) {
-        if (e.keyCode == 13) {
-          chan.push("new:msg", { user: $username.val(), body: $input.val() });
-          $input.val("");
-        }
+      $input.on("click", function (e) {
+        chan.push("new:msg", { user: $username.val(), body: "green" });
+        $input.val("");
       });
 
       chan.on("new:msg", function (msg) {
@@ -2880,8 +2878,10 @@ var App = function () {
       });
 
       chan.on("user:entered", function (msg) {
-        var username = _this.sanitize(msg.user || "anonymous");
-        $messages.append("<div class='dot' id='dot-" + username + "'></div>");
+        if (msg.user) {
+          var username = _this.sanitize(msg.user);
+          $messages.append("<div class='dot' id='dot-" + username + "' style='background-color: white; border: 1px solid black;'></div>");
+        }
       });
     }
   }, {

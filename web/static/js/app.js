@@ -10,7 +10,7 @@ class App {
     socket.connect({user_id: "123"})
     var $status    = $("#status")
     var $messages  = $("#messages")
-    var $input     = $("#message-input")
+    var $input     = $("#circle-input")
     var $username  = $("#username")
 
     socket.onOpen( ev => console.log("OPEN", ev) )
@@ -24,11 +24,9 @@ class App {
     chan.onError(e => console.log("something went wrong", e))
     chan.onClose(e => console.log("channel closed", e))
 
-    $input.off("keypress").on("keypress", e => {
-      if (e.keyCode == 13) {
-        chan.push("new:msg", {user: $username.val(), body: $input.val()})
-        $input.val("")
-      }
+    $input.on("click", e => {
+      chan.push("new:msg", {user: $username.val(), body: "green"})
+      $input.val("")
     })
 
     chan.on("new:msg", msg => {
@@ -37,8 +35,10 @@ class App {
     })
 
     chan.on("user:entered", msg => {
-      var username = this.sanitize(msg.user || "anonymous")
-      $messages.append(`<div class='dot' id='dot-${username}'></div>`)
+      if(msg.user) {
+        var username = this.sanitize(msg.user)
+        $messages.append(`<div class='dot' id='dot-${username}' style='background-color: white; border: 1px solid black;'></div>`)
+      }
     })
   }
 
