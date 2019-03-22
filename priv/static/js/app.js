@@ -2839,12 +2839,10 @@ var App = function () {
       socket.connect({ user_id: "123" });
       var $status = $("#status");
       var $messages = $("#messages");
-      var $circleChoiceRed = $("#circle-choice-red");
-      var $circleChoiceGreen = $("#circle-choice-green");
-      var $circleChoiceBlue = $("#circle-choice-blue");
+      var $circleColorInput = $("#circle-color-input");
       var $input = $("#circle-input");
       var $username = $("#username");
-      var circleColor = "red";
+      var circleColor = "black";
 
       socket.onOpen(function (ev) {
         return console.log("OPEN", ev);
@@ -2876,18 +2874,8 @@ var App = function () {
         $input.val("");
       });
 
-      $circleChoiceRed.on("click", function (e) {
-        circleColor = "red";
-        $input.css("background-color", circleColor);
-      });
-
-      $circleChoiceGreen.on("click", function (e) {
-        circleColor = "green";
-        $input.css("background-color", circleColor);
-      });
-
-      $circleChoiceBlue.on("click", function (e) {
-        circleColor = "blue";
+      $circleColorInput.on("keyup", function (e) {
+        circleColor = $circleColorInput.val();
         $input.css("background-color", circleColor);
       });
 

@@ -10,12 +10,10 @@ class App {
     socket.connect({user_id: "123"})
     var $status    = $("#status")
     var $messages  = $("#messages")
-    var $circleChoiceRed   = $("#circle-choice-red")
-    var $circleChoiceGreen = $("#circle-choice-green")
-    var $circleChoiceBlue  = $("#circle-choice-blue")
+    var $circleColorInput = $("#circle-color-input")
     var $input     = $("#circle-input")
     var $username  = $("#username")
-    var circleColor = "red"
+    var circleColor = "black"
 
     socket.onOpen( ev => console.log("OPEN", ev) )
     socket.onError( ev => console.log("ERROR", ev) )
@@ -33,19 +31,9 @@ class App {
       $input.val("")
     })
 
-    $circleChoiceRed.on("click", e => {
-      circleColor = "red"; 
-      $input.css("background-color", circleColor)
-    })
-
-    $circleChoiceGreen.on("click", e => {
-      circleColor = "green"; 
-      $input.css("background-color", circleColor)
-    })
-
-    $circleChoiceBlue.on("click", e => {
-      circleColor = "blue"; 
-      $input.css("background-color", circleColor)
+    $circleColorInput.on("keyup", e => {
+      circleColor = $circleColorInput.val();
+      $input.css("background-color", circleColor);
     })
 
     chan.on("new:msg", msg => {
