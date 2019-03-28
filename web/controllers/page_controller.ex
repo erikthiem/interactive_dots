@@ -5,7 +5,7 @@ defmodule Chat.PageController do
     render conn, "index.html"
   end
 
-  def show(conn, params) do
+  def show(conn, _params) do
     render conn, "show.html"
   end
 end

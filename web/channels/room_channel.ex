@@ -12,7 +12,7 @@ defmodule Chat.RoomChannel do
   `:ignore` to deny subscription/broadcast on this channel
   for the requested topic
   """
-  def join("rooms:lobby", message, socket) do
+  def join("rooms:cb", message, socket) do
     Process.flag(:trap_exit, true)
     :timer.send_interval(5000, :ping)
     send(self, {:after_join, message})

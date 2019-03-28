@@ -2838,7 +2838,7 @@ var App = function () {
 
       socket.connect({ user_id: "123" });
       var $status = $("#status");
-      var $messages = $("#messages");
+      var $dots = $("#dots");
       var $circleColorInput = $("#circle-color-input");
       var $input = $("#circle-input");
       var $username = $("#username");
@@ -2854,7 +2854,7 @@ var App = function () {
         return console.log("CLOSE", e);
       });
 
-      var chan = socket.channel("rooms:lobby", {});
+      var chan = socket.channel("rooms:cb", {});
       chan.join().receive("ignore", function () {
         return console.log("auth error");
       }).receive("ok", function () {
@@ -2880,14 +2880,14 @@ var App = function () {
       });
 
       chan.on("new:msg", function (msg) {
-        $messages.append("<div class='dot' id='dot-" + msg.user + "' style='background-color: " + msg.body + "'></div>");
+        $dots.append("<div class='dot' id='dot-" + msg.user + "' style='background-color: " + msg.body + "'></div>");
         scrollTo(0, document.body.scrollHeight);
       });
 
       chan.on("user:entered", function (msg) {
         if (msg.user) {
           var username = _this.sanitize(msg.user);
-          $messages.append("<div class='dot' id='dot-" + username + "' style='background-color: white; border: 1px solid black;'></div>");
+          $dots.append("<div class='dot' id='dot-" + username + "' style='background-color: white; border: 1px solid black;'></div>");
         }
       });
     }
