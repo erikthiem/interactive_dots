@@ -1,3 +1,5 @@
-<input id="username" value="<%= dotid()%>" type="hidden">
-<input id="circle-color-input" value="black"/>
-<div id="circle-input"></div>
+<div id="inputform">
+  <input id="username" value="<%= dotid()%>" type="hidden">
+  <input id="circle-color-input" value="black"/>
+  <div id="circle-input"></div>
+</div>
