@@ -1,4 +1,5 @@
 <div id="inputform">
+  <h1>Type, then Click</h1>
   <input id="username" value="<%= dotid()%>" type="hidden">
   <input id="circle-color-input" value="black"/>
   <div id="circle-input"></div>

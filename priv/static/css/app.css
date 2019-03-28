@@ -69,6 +69,14 @@ code {
   border: 1px solid black;
   margin: auto;
   margin-top: 20px;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+#circle-input:active {
+  border: 5px solid black;
+  border-radius: 0;
 }
 
 .circle-choice {
