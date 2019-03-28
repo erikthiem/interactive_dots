@@ -1,3 +1,5 @@
-<h1>Interactive Dots</h1>
-<p>To join, visit http://134.209.38.111/cb/join</p>
+<div id="introtext">
+  <h1>Interactive Dots</h1>
+  <h3>To join, visit <span style="color: red;">134.209.38.111/cb/join</span> on a mobile phone</h3>
+</div>
 <div id="dots" class="container"></div>

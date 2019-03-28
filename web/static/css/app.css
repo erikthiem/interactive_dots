@@ -48,6 +48,7 @@ code {
   margin: 10px;
   border-radius: 50%;
   border: 1px solid black;
+  display: inline-block;
 }
 
 #circle-input {
@@ -81,4 +82,8 @@ code {
   background-color: #9bffaa5e;
   padding: 10px;
   font-size: 15pt;
+}
+
+#introtext {
+  text-align: center;
 }
