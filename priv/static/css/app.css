@@ -59,6 +59,17 @@ code {
   border-radius: 50%;
   border: 1px solid black;
   display: inline-block;
+  -webkit-animation: slowlyAppear 2s forwards;
+  animation: slowlyAppear 2s forwards;
+}
+
+@keyframes slowlyAppear {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+@-webkit-keyframes slowlyAppear {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 #circle-input {

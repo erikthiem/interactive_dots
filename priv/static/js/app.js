@@ -2880,7 +2880,7 @@ var App = function () {
       });
 
       chan.on("new:msg", function (msg) {
-        $dots.append("<div class='dot' id='dot-" + msg.user + "' style='background-color: " + msg.body + "'></div>");
+        $dots.append("<div class='dot' id='dot-" + msg.user + "' style='background-color: " + msg.body + "; opacity: 0.2;'></div>");
         scrollTo(0, document.body.scrollHeight);
       });
 
