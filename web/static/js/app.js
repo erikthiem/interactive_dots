@@ -13,7 +13,7 @@ class App {
     var $circleColorInput = $("#circle-color-input")
     var $input     = $("#circle-input")
     var $username  = $("#username")
-    var circleColor = "black"
+    var circleColor = "green"
 
     socket.onOpen( ev => console.log("OPEN", ev) )
     socket.onError( ev => console.log("ERROR", ev) )

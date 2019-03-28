@@ -16,7 +16,6 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-top: 50px; margin-bottom: 60px;
 }
 
 #footer {
@@ -62,21 +61,20 @@ code {
 }
 
 #circle-input {
-  background-color: black;
-  height: 200px;
-  width: 200px;
+  background-color: green;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   border: 1px solid black;
   margin: auto;
   margin-top: 20px;
   -webkit-transition: all .1s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 #circle-input:active {
-  border: 5px solid black;
-  border-radius: 0;
+  border: 50px solid black;
 }
 
 .circle-choice {
