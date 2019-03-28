@@ -8,6 +8,7 @@ class App {
     })
 
     socket.connect({user_id: "123"})
+    var $roomid = $("#roomid").val()
     var $status    = $("#status")
     var $dots  = $("#dots")
     var $circleColorInput = $("#circle-color-input")
@@ -19,7 +20,7 @@ class App {
     socket.onError( ev => console.log("ERROR", ev) )
     socket.onClose( e => console.log("CLOSE", e))
 
-    var chan = socket.channel("rooms:cb", {})
+    var chan = socket.channel("rooms:" + $roomid, {})
     chan.join().receive("ignore", () => console.log("auth error"))
                .receive("ok", () => console.log("join ok"))
                .after(10000, () => console.log("Connection interruption"))

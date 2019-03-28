@@ -2837,6 +2837,7 @@ var App = function () {
       });
 
       socket.connect({ user_id: "123" });
+      var $roomid = $("#roomid").val();
       var $status = $("#status");
       var $dots = $("#dots");
       var $circleColorInput = $("#circle-color-input");
@@ -2854,7 +2855,7 @@ var App = function () {
         return console.log("CLOSE", e);
       });
 
-      var chan = socket.channel("rooms:cb", {});
+      var chan = socket.channel("rooms:" + $roomid, {});
       chan.join().receive("ignore", function () {
         return console.log("auth error");
       }).receive("ok", function () {
